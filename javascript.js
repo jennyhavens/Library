@@ -24,9 +24,9 @@ let displayCards = () => {
             (book) =>
                 `<div class='bookCards'>
             <h4 class='bookTitle'>${book.title}</h4>
-            <h4 class='bookAuthor'>Author:  ${book.author}</h4>
-            <h4 class='bookPages'>Pages:  ${book.pages}</h4>
-            <h4 class='bookRead'>Read:  ${book.read ? `Read` : `Not Read`}</h4>
+            <h4 class='bookAuthor'>By:  ${book.author}</h4>
+            <h4 class='bookPages'>${book.pages} pages</h4>
+            <h4 class='bookRead'>${book.read ? `Read` : `Not Read`}</h4>
             <div id='${book.uuid}' class='bookCardButtons'>
                 <button class='deleteButtons buttons'>Delete</button>
                 <button class='editButtons buttons'>Edit Read</button>
@@ -95,7 +95,7 @@ submitButton.addEventListener("click", (event) => {
     titleInput.value = "";
     authorInput.value = "";
     pagesInput.value = "";
-    readInput.checked = "not yet";
+    readInput.checked = false;
 
     /* make hidden */
     displayCards();
@@ -103,7 +103,7 @@ submitButton.addEventListener("click", (event) => {
 });
 
 /*placeholders*/
-addBook("Placeholder 1", "Author", "374", "yes");
-addBook("Placeholder 1", "Author", "293", "yes");
-addBook("Placeholder 1", "Author", "351", "not yet");
+addBook("The Nightingale", "Kristen Hannah", "564", true);
+addBook("Bright Young Women", "Jessica Knoll", "384", true);
+addBook("The Frozen River", "Ariel Lawhon", "432", false);
 displayCards();

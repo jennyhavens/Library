@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <h1>My Library</h1>
+                </div>
+                <div class="add-button">
+                    <button class="buttons" id="addButton">Add New Book</button>
+                    <dialog class="dialog-form">
+                        <form action="" id="newBookForm" class="new-book-form">
+                            <label class="labels" for="title">Title</label>
+                            <input
+                                class="inputs"
+                                id="title"
+                                type="text"
+                                placeholder="Lessons in Chemistry"
+                            />
+                            <label class="labels" for="author">Author</label>
+                            <input
+                                class="inputs"
+                                id="author"
+                                type="text"
+                                placeholder="Bonnie Garmus"
+                            />
+                            <label class="labels" for="pages">Pages</label>
+                            <input
+                                class="inputs"
+                                id="pages"
+                                type="text"
+                                placeholder="404"
+                            />
+                            <label class="labels" for="read"
+                                >Have you read?</label
+                            >
+                            <input class="inputs" id="read" type="checkbox" />
 
-    <div class="container">
-        <div class="header">
-            <div class="logo">
-                <h1>My Library</h1>
+                            <div class="form-buttons">
+                                <button
+                                    class="buttons"
+                                    id="submitButton"
+                                    type="submit"
+                                >
+                                    Add
+                                </button>
+                                <button class="buttons" id="closeButton">
+                                    Close
+                                </button>
+                            </div>
+                        </form>
+                    </dialog>
+                </div>
             </div>
-            <div class="add-button">
-                <button class="buttons" id="addButton">Add New Book</button>
-                <dialog class="dialog-form">
-                    <form action="" id="newBookForm" class="new-book-form">
-                        <label class="labels" for="title">Title</label>
-                        <input class="inputs" id="title" type="text">
-                        <label class="labels" for="author">Author</label>
-                        <input class="inputs" id="author" type="text">
-                        <label class="labels" for="pages">Pages</label>
-                        <input class="inputs" id="pages" type="text">
-                        <label class="labels" for="read">Have you read?</label>
-                        <div class=checkboxes>
-                            <input class="inputs" id="read" type="checkbox">yes
-                            <input class="inputs" id="notRead" type="checkbox">not yet
-                        </div>
-
-    
-                        <div class="form-buttons">
-                            <button class="buttons" id="submitButton" type="submit">Add</button>
-                            <button class="buttons" id="closeButton">Close</button>
-                        </div>
-                    </form>
-                </dialog>
-            </div>
-
+            <div class="book-shelf"></div>
         </div>
-        <div class="book-shelf"></div>
-    </div>
 
-    <script src="javascript.js"></script>
-    
-</body>
+        <script src="javascript.js"></script>
+    </body>
 </html>
