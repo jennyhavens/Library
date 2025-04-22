@@ -10,7 +10,6 @@ const pagesInput = document.querySelector("#pages");
 const readInput = document.querySelector("#read");
 const dialogForm = document.querySelector(".dialog-form");
 
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -19,43 +18,39 @@ function Book(title, author, pages, read) {
     this.uuid = crypto.randomUUID();
 }
 
-
 let displayCards = () => {
     bookShelf.innerHTML = myLibrary
-    .map(
-        (book) =>
-        `<div class='bookCards'>
+        .map(
+            (book) =>
+                `<div class='bookCards'>
             <h4 class='bookTitle'>${book.title}</h4>
             <h4 class='bookAuthor'>Author:  ${book.author}</h4>
             <h4 class='bookPages'>Pages:  ${book.pages}</h4>
-            <h4 class='bookRead'>Read:  ${book.read}</h4>
+            <h4 class='bookRead'>Read:  ${book.read ? `Read` : `Not Read`}</h4>
             <div id='${book.uuid}' class='bookCardButtons'>
                 <button class='deleteButtons buttons'>Delete</button>
                 <button class='editButtons buttons'>Edit Read</button>
             </div>
         </div>`
-    )
-    .join("");
+        )
+        .join("");
     delete_edit();
 };
-
 
 let addBook = (title, author, pages, read) => {
     let newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
 };
 
-
 let editBook = (arr, id) => {
     const bookIdIndex = arr.findIndex((obj) => obj.uuid === id);
-    if(arr[bookIdIndex].read == false) {
-    arr[bookIdIndex].read = true;
+    if (arr[bookIdIndex].read == false) {
+        arr[bookIdIndex].read = true;
     } else {
-    arr[bookIdIndex].read = false;
+        arr[bookIdIndex].read = false;
     }
     return arr;
-}
-
+};
 
 let removeBook = (arr, id) => {
     const objIdIndex = arr.findIndex((obj) => obj.uuid === id);
@@ -63,23 +58,21 @@ let removeBook = (arr, id) => {
     return arr;
 };
 
-
 let delete_edit = () => {
     const buttonDiv = document.querySelectorAll(".bookCardButtons");
     buttonDiv.forEach((button) => {
-    const deleteButton = button.querySelector('.deleteButtons')
-    const editButton = button.querySelector('.editButtons')
-    deleteButton.addEventListener("click", () => {
-        removeBook(myLibrary, button.id);
-        displayCards();
-    });
-    editButton.addEventListener('click', (event) => {
-        editBook(myLibrary, button.id);
-        displayCards();
-    })
+        const deleteButton = button.querySelector(".deleteButtons");
+        const editButton = button.querySelector(".editButtons");
+        deleteButton.addEventListener("click", () => {
+            removeBook(myLibrary, button.id);
+            displayCards();
+        });
+        editButton.addEventListener("click", (event) => {
+            editBook(myLibrary, button.id);
+            displayCards();
+        });
     });
 };
-
 
 addButton.addEventListener("click", () => {
     dialogForm.showModal();
@@ -106,11 +99,11 @@ submitButton.addEventListener("click", (event) => {
 
     /* make hidden */
     displayCards();
-    dialogForm.close()
+    dialogForm.close();
 });
 
 /*placeholders*/
 addBook("Placeholder 1", "Author", "374", "yes");
 addBook("Placeholder 1", "Author", "293", "yes");
 addBook("Placeholder 1", "Author", "351", "not yet");
-displayCards(); 
+displayCards();
