@@ -1,0 +1,174 @@
+* {
+    --primary-color: #f99368;
+    --secondary-color: #7e82e7;
+    --third-color: #84f6b6;
+    --neutral-color: #d4c4da;
+
+    font-family: "Atma", system-ui;
+    font-weight: 500;
+    font-style: normal;
+}
+
+html {
+    background-color: var(--neutral-color);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.header {
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: var(--primary-color);
+    box-shadow: 0px 4px 6px #444444;
+    text-align: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: #ffffff;
+    text-shadow: 4px 6px 5px #444444;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+}
+
+.add-button {
+    grid-column: 3;
+    justify-self: center;
+    align-self: center;
+}
+
+.buttons {
+    text-align: center;
+    padding: 16px 10px;
+    font-size: 1.5em;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 6px 5px #444444;
+    color: #ffffff;
+    transition: .5s;
+}
+
+.buttons:hover {
+    background-color: var(--third-color);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.book-shelf {
+    padding: 32px;
+    display: grid;
+    gap: 64px;
+    grid-template-columns: repeat(auto-fit, 300px);
+    place-content: start;
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(5px);
+}
+
+.dialog-form {
+    width: min(50vw, 460px);
+}
+
+.new-book-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 0px;  
+}
+
+.new-book-form .buttons {
+    width: 100px;
+    padding: 8px 0px;
+    font-size: 1.33rem;
+    background-color: var(--primary-color);
+}
+
+.new-book-form .buttons:hover {
+    background-color: var(--third-color);
+}
+
+.form-buttons {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.inputs {
+    width: 65%;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.33rem;
+    box-shadow: 2px 3px 3px #444444;
+}
+
+#read, #notRead {
+    height: 30px;
+    width: 30px;
+}
+
+.inputs:focus {
+    outline: 3px solid var(--primary-color);
+}
+
+.labels {
+    font-size: 2em;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 2px 3px 3px #444444;
+}
+
+.bookCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    padding: 20px 10px;
+    box-shadow: 2px 3px 3px #444444;
+    color: #ffffff;
+    text-align: center;
+}
+
+.bookCards .buttons {
+    width: 100px;
+    padding: 8px 0px;
+    font-size: 1.3em;
+}
+
+.bookCardButtons {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    padding-top: 8px;
+}
+
+.bookTitle {
+    font-size: 1.66rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.bookAuthor,
+.bookPages,
+.bookRead {
+    font-size: 1.33rem;
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+}
