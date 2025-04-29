@@ -7,6 +7,7 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const readInput = document.querySelector("#read");
+const dialogForm = document.querySelector(".dialog-form");
 
 class Book {
     title = "";
@@ -87,20 +88,34 @@ class Library {
 const library = new Library();
 
 addButton.addEventListener("click", () => {
-    const title = titleInput.value.trim();
-    const author = authorInput.value.trim();
-    const pages = pagesInput.value.trim();
-    const read = readInput.checked;
+    dialogForm.showModal();
+});
 
-    // Validate inputs
-    if (title && author && pages) {
-        const newBook = new Book(title, author, pages, read);
-        library.addBook(newBook);
-        newBookForm.reset();
-    } else {
-        alert("Please fill in all fields.");
-    }
+closeButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    dialogForm.close();
+});
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let bTitle = titleInput.value;
+    let bAuthor = authorInput.value;
+    let bPages = pagesInput.value;
+    let bRead = readInput.checked;
+    library.addBook(new Book(bTitle, bAuthor, bPages, bRead));
+
+    /* input reset */
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    readInput.checked = false;
+
+    /* make hidden */
+    displayCards();
+    dialogForm.close();
 });
 
 // Adding a sample book
 library.addBook(new Book("The Nightingale", "Kristen Hannah", "564", true));
+library.addBook(new Book("Bright Young Women", "Jessica Knoll", "384", true));
+library.addBook(new Book("The Frozen River", "Ariel Lawhon", "432", false));
